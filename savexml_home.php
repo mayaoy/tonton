@@ -1,10 +1,4 @@
-<html>
-	<head>
- 		<meta charset="utf-8" />
-  		<title>savexml_home</title>
- 	</head>
- 	<body>
-		<?php
+<?php
 // 			$str = '{"banner":
 // [
 // {
@@ -191,69 +185,67 @@
 
 
 
-			// $_POST = json_decode($str, true);
-			//print_r($_POST);
+	// $_POST = json_decode($str, true);
+	//print_r($_POST);
 
-			class SimpleXMLExtended extends SimpleXMLElement {
-			  public function addCData($cdata_text) {
-			    $node = dom_import_simplexml($this); 
-			    $no   = $node->ownerDocument; 
-			    $node->appendChild($no->createCDATASection($cdata_text)); 
-			  } 
-			}
+	class SimpleXMLExtended extends SimpleXMLElement {
+	  public function addCData($cdata_text) {
+	    $node = dom_import_simplexml($this); 
+	    $no   = $node->ownerDocument; 
+	    $node->appendChild($no->createCDATASection($cdata_text)); 
+	  } 
+	}
 
 
-			$xml = new SimpleXMLExtended('<?xml version="1.0" encoding="utf-8" ?><home/>');
+	$xml = new SimpleXMLExtended('<?xml version="1.0" encoding="utf-8" ?><home/>');
 
-			$organizer_count = 0;
+	$organizer_count = 0;
 
-			foreach ($_POST as $class_name => $item) {
-				$class_name_xml = $xml->addChild($class_name);
-				$item_xml;
-				foreach ($item as $key => $content) {
-					if($class_name != 'organizer' || $organizer_count % 6 == 0)
-						$item_xml = $class_name_xml->addChild('item');
-					
-					$child_item = $item_xml;
+	foreach ($_POST as $class_name => $item) {
+		$class_name_xml = $xml->addChild($class_name);
+		$item_xml;
+		foreach ($item as $key => $content) {
+			if($class_name != 'organizer' || $organizer_count % 6 == 0)
+				$item_xml = $class_name_xml->addChild('item');
+			
+			$child_item = $item_xml;
 
-					if($class_name == 'place'){
-						if($key === 0){
-							$item_xml->addattribute('key','big');
-						}else{
-							$item_xml->addattribute('key','normal');
-						}
-						
-					}elseif ($class_name == 'organizer') {
-						$child_item = $item_xml->addChild('childItem');
-						$organizer_count++;
-					}
-
-					foreach ($content as $content_name => $value) {
-						if ($class_name == 'editorChoice' && $content_name =='zh-tw'){
-							$child_item = $child_item->addChild('title');
-						}
-
-						if ($content_name == 'description' || $content_name == 'title'){
-							// $value = '<![CDATA['.$value.']]>';
-							$child_item->addCData($content_name,$value);
-						}else{
-							$child_item->addChild($content_name,$value);
-						}
-						
-					}
+			if($class_name == 'place'){
+				if($key === 0){
+					$item_xml->addattribute('key','big');
+				}else{
+					$item_xml->addattribute('key','normal');
 				}
+				
+			}elseif ($class_name == 'organizer') {
+				$child_item = $item_xml->addChild('childItem');
+				$organizer_count++;
 			}
 
-			$dom = new DOMDocument('1.0');
-			$dom->preserveWhiteSpace = false;
-			$dom->formatOutput = true;
-			$dom->loadXML($xml->asXML());
-			// echo $dom->saveXML();
-			$xml_str =  $dom->saveXML();
-			$file = fopen(time().'.xml', 'w');
-			fwrite($file, $xml_str);
-			fclose($file);
+			foreach ($content as $content_name => $value) {
+				if ($class_name == 'editorChoice' && $content_name =='zh-tw'){
+					$child_item = $child_item->addChild('title');
+				}
 
-		?>
- </body>
-</html>
+				if ($content_name == 'description' || $content_name == 'title'){
+					// $value = '<![CDATA['.$value.']]>';
+					$child_item->addCData($content_name,$value);
+				}else{
+					$child_item->addChild($content_name,$value);
+				}
+				
+			}
+		}
+	}
+	$file_name = time().'.xml';
+	$dom = new DOMDocument('1.0');
+	$dom->preserveWhiteSpace = false;
+	$dom->formatOutput = true;
+	$dom->loadXML($xml->asXML());
+	// echo $dom->saveXML();
+	$xml_str =  $dom->saveXML();
+	$file = fopen($file_name, 'w');
+	fwrite($file, $xml_str);
+	fclose($file);
+	echo $file_name;
+?>

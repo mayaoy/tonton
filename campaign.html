@@ -281,6 +281,8 @@
 
         $.post('./savexml_home.php', params, function(flag){
             console.log(flag);
+            $('#button_container').append('<h2>'+flag+'</h2>');
+            //alert(flag);
         });
         console.log(params);
     };
