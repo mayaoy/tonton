@@ -1,0 +1,288 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <style>
+        body {
+            text-align: center;
+        }
+        #container {
+            margin: 0 auto;
+            width: 80%;
+            padding:20px;
+        }
+        form {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin:10px;
+        }
+        header {
+            color:white;
+            font-size: 22px;
+            background-color: #0088d2;
+            width:100%;
+            height: 50px;
+            padding:10px;
+        }
+        header img {
+            margin:0;
+            margin-left:200px;
+            float:left;
+        }
+        legend button {
+            margin: 5px 40px;
+        }
+        form {
+            position:relative;
+        }
+        button.remove {
+            position: absolute;
+            top:0;
+            right:0;
+        }
+        .btn-tonton {
+            color: #fff;
+            background-color: #0088d2;
+            border-color: #ccc;
+        }
+        .btn-tonton:hover {
+            color:#fff;
+        }
+        table{
+            width: 100%;
+        }
+        td, th {
+            padding:10px;
+            background-color: #fbfbfb;
+            text-align: center;
+        }
+        </style>
+    </head>
+    <body>
+        <header><img src="http://www.accupass.com/images/base/accupass_logo.png" alt=""></header>
+        <div id="container"></div>
+        <div id="button_container"><button class="btn btn-lg btn-tonton" id="submit_form">Submit</button></div>
+    </body>
+</html>
+<script>
+    var genForm = function(form_id, form){
+        var i;
+        var form_index = 1;
+        if($('form[name='+form_id+']')){
+            form_index = $('form[name='+form_id+']').length+1;
+        }
+        var content = '<form class="form-horizontal" role="form" name="'+form_id+'" index="'+form_index+'">';
+        content += '<button class="btn btn-default remove">X</button>';
+        content += '<label class="index">#'+form_index+'</label>';
+        content += '<table>';
+        var title_str = '<tr>';
+        var field_str = '<tr>';
+
+        for(i in form){
+            field = form[i];
+            title_str += '<th>'+field.title+'</th>';
+            field_str += '<td>';
+            
+            field_str += '<input type="'+field.type+'" ';
+            if(field.type === 'text' || field.type === 'password')
+                field_str += 'class="form-control" ';
+            field_str += 'id="'+field.name+'">';
+            field_str += '</td>';
+        }
+        content += title_str;
+        content += field_str;
+        content += '</table>';
+
+        // for(i in form){
+        //     field = form[i];
+        //     content += '<div class="form-group">';
+        //     content += '<label for="'+field.name+'" class="col-sm-2 control-label">'+field.title+'</label>';
+        //     content += '<div class="col-sm-10">';
+            
+        //     content += '<input type="'+field.type+'" ';
+        //     if(field.type === 'text' || field.type === 'password')
+        //         content += 'class="form-control" ';
+        //     content += 'id="'+field.name+'">';
+        //     content += '</div>';
+        //     content += '</div>';
+        // }
+        content += '</form>';
+        return content;
+    };
+
+    var setIndex = function(){
+        var form_id, index;
+        for(form_id in Forms){
+            $('.category[id='+form_id+'] form').each(function(index){
+                index = index +1;
+                $(this).attr('index', index);
+                $(this).find('label.index').html('#'+index);
+            });
+        }
+    };
+
+    var Forms = {
+        banner: [
+            {
+                title: '活動名稱',
+                name: 'description',
+                type: 'text',
+            },
+            {
+                title: 'ImageUrl',
+                name: 'imageUrl',
+                type: 'text',
+            },
+            {
+                title: '活動網址(URL)',
+                name: 'url',
+                type: 'text',
+            }
+            ,
+            {
+                title: '負責人',
+                name: 'person',
+                type: 'text',
+            }
+        ],
+        editorChoice: [
+            {
+                title: '網址/key',
+                name: 'key',
+                type: 'text',
+            },
+            {
+                title: 'ImageUrl (首頁 size:200X100)',
+                name: 'imageUrl',
+                type: 'text',
+            },
+            {
+                title: 'Title/中文',
+                name: 'zh-tw',
+                type: 'text',
+            },
+            {
+                title: 'Title/英文',
+                name: 'en-us',
+                type: 'text',
+            }
+        ],
+        fresh: [
+            {
+                title: '文章名稱',
+                name: 'description',
+                type: 'text',
+            },
+            {
+                title: 'Image Url(size:440x220)',
+                name: 'imageUrl',
+                type: 'text',
+            },
+            {
+                title: '文章網址(URL)',
+                name: 'url',
+                type: 'text',
+            }
+        ],
+        place: [
+            {
+                title: '文章名稱',
+                name: 'title',
+                type: 'text',
+            },
+            {
+                title: 'Image Url(size:440x220(大)、200x100(小))',
+                name: 'imageUrl',
+                type: 'text',
+            },
+            {
+                title: '文章網址(URL)',
+                name: 'url',
+                type: 'text',
+            },
+            {
+                title: '文章簡述(12字元內)',
+                name: 'description',
+                type: 'text',
+            },
+            {
+                title: '所在地(縣市)',
+                name: 'place',
+                type: 'text',
+            }
+        ],
+        organizer: [
+            {
+                title: '主辦單位名稱',
+                name: 'description',
+                type: 'text',
+            },
+            {
+                title: 'Image Url(size:128x128)',
+                name: 'imageUrl',
+                type: 'text',
+            },
+            {
+                title: '主辦單位網址(URL)',
+                name: 'url',
+                type: 'text',
+            }
+        ]
+    };
+
+
+    var form_id, i, field;
+    var content = '';
+    for(form_id in Forms){
+        content += '<div class="category" id="'+form_id+'">';
+        content += '<legend>'+form_id+'<button class="btn btn-default add" form_id="'+form_id+'">+</button></legend>';
+        content += genForm(form_id, Forms[form_id]);
+        content += '</div>';
+    }
+
+    $('#container').html(content);
+
+    $('#container').on('click', 'button.add', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var form_id = $(this).attr('form_id');
+        var content = genForm(form_id, Forms[form_id]);
+        $('.category[id='+form_id+']').append(content);
+    });
+
+    $('#container').on('click', 'button.remove', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        $(this).parents('form').remove();
+        setIndex();
+    });
+    $('#submit_form').click(function(){
+        submitForm();
+    });
+    var submitForm = function(){
+        var form_id;
+        var params = {};
+
+        for(form_id in Forms){
+            params[form_id] = [];
+            $('.category[id='+form_id+']').each(function(index){
+                $(this).find('form').each(function(){
+                    var p = {};
+                    $(this).find('input').each(function(){
+                        p[$(this).attr('id')] = $(this).val();
+                    });
+                    params[form_id].push(p);
+                });
+            });
+        }
+
+        $.post('./savexml_home.php', params, function(flag){
+            console.log(flag);
+        });
+        console.log(params);
+    };
+
+</script>
