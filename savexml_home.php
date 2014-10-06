@@ -229,7 +229,8 @@
 
 				if ($content_name == 'description' || $content_name == 'title'){
 					// $value = '<![CDATA['.$value.']]>';
-					$child_item->addCData($content_name,$value);
+					$next_child_item = $child_item->addChild($content_name);
+					$next_child_item->addCData($value);
 				}else{
 					$child_item->addChild($content_name,$value);
 				}
@@ -237,7 +238,7 @@
 			}
 		}
 	}
-	$file_name = time().'.xml';
+	$file_name = date("Ymd").'.xml';
 	$dom = new DOMDocument('1.0');
 	$dom->preserveWhiteSpace = false;
 	$dom->formatOutput = true;
