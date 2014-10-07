@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>datetest</title>
+        <script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <script type='text/javascript' src="jquery-git2.js"></script>
+        <script type="text/javascript" src="moment.js"></script>
+
+        <script type="text/javascript" src="./bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js"></script>
+        <link rel="stylesheet" href="./bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css">
+
+<script type='text/javascript'>//<![CDATA[ 
+$(window).load(function(){
+$(function () {
+                $('#datetimepicker5').datetimepicker({
+                    pickTime: false
+                });
+            });
+});//]]>  
+</script>
+    </head>
+<body>
+    <div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker5'>
+                    <input type='text' class="form-control" data-date-format="YYYY/MM/DD"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>   
+    </div>
+    </div>
+</body>
+
+</html>
+
+
+

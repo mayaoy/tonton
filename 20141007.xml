@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<home>
+  <banner>
+    <item>
+      <description><![CDATA[健康2.0親子田野學堂 食育比智育更重要！]]></description>
+      <imageUrl>http://accupassv3storage.blob.core.windows.net/images/banner_1007_01</imageUrl>
+      <url>/event/register/1410011032461878670677</url>
+      <person>Peggy</person>
+    </item>
+    <item>
+      <description><![CDATA[【老寮秋收旅行－我們去石壁部落採柿子】]]></description>
+      <imageUrl>http://accupassv3storage.blob.core.windows.net/images/banner_1007_02</imageUrl>
+      <url>/event/register/1410021201582118046382</url>
+      <person>Tiffany</person>
+    </item>
+    <item>
+      <description><![CDATA[城市~陳事 系列，演講音樂會]]></description>
+      <imageUrl>http://accupassv3storage.blob.core.windows.net/images/banner_1007_03</imageUrl>
+      <url>/go/citystory</url>
+      <person>Peggy</person>
+    </item>
+    <item>
+      <description><![CDATA[2014 葡萄酒與烈酒探索之旅 Wine & Spirits Discovery]]></description>
+      <imageUrl>http://accupassv3storage.blob.core.windows.net/images/banner_1007_04</imageUrl>
+      <url>/event/register/1409160418521103787606</url>
+      <person>Jason</person>
+    </item>
+    <item>
+      <description><![CDATA[公民爵醒Live Jazz Concert：流金幻夢]]></description>
+      <imageUrl>http://accupassv3storage.blob.core.windows.net/images/banner_1007_05</imageUrl>
+      <url>/event/register/1409300616559042766770</url>
+      <person>Jason</person>
+    </item>
+    <item>
+      <description><![CDATA[卡米地愛情喜劇：愛上癮，愛上你]]></description>
+      <imageUrl>http://accupassv3storage.blob.core.windows.net/images/banner_1007_06</imageUrl>
+      <url>/org/detail/r/1408270717151995186622/1/0</url>
+      <person>Nick</person>
+    </item>
+    <item>
+      <description><![CDATA[人文空間講堂：龔書章【靈光與迴響－以建築為名的多向凝視】]]></description>
+      <imageUrl>http://accupassv3storage.blob.core.windows.net/images/banner_1007_07</imageUrl>
+      <url>/event/register/1409170633333668991360</url>
+      <person>Jason</person>
+    </item>
+    <item>
+      <description><![CDATA[創新吧！公益－NPOst公益交流站2014年首屆公益創新影響力論壇]]></description>
+      <imageUrl>http://accupassv3storage.blob.core.windows.net/images/banner_1007_08</imageUrl>
+      <url>/event/register/1410021759505597173350</url>
+      <person>Jason</person>
+    </item>
+    <item>
+      <description><![CDATA[【卡樂講堂】夢想飛行員 Start Growth Engine!]]></description>
+      <imageUrl>http://accupassv3storage.blob.core.windows.net/images/banner_1007_09</imageUrl>
+      <url>/event/register/1410021052541685208614</url>
+      <person>Tiffany</person>
+    </item>
+    <item>
+      <description><![CDATA[數位時代【創業小聚】2014年10月活動]]></description>
+      <imageUrl>http://accupassv3storage.blob.core.windows.net/images/banner_1007_10</imageUrl>
+      <url>/event/register/1409221131052060538920</url>
+      <person>Jason</person>
+    </item>
+  </banner>
+  <editorChoice>
+    <item>
+      <key/>
+      <imageUrl>http://accupassv3storage.blob.core.windows.net/images/</imageUrl>
+      <title>
+        <zh-tw/>
+        <en-us/>
+      </title>
+    </item>
+  </editorChoice>
+  <fresh>
+    <item>
+      <description><![CDATA[臺北鐵道文化節－見證臺北鐵道的光輝歲月]]></description>
+      <imageUrl>http://accupassv3storage.blob.core.windows.net/images/fun_1007_01</imageUrl>
+      <url>http://blog.accupass.com/2014-trcf.html</url>
+    </item>
+    <item>
+      <description><![CDATA[學習精選特輯2：茶道、摺紙、文創，一個日本風的秋日Style]]></description>
+      <imageUrl>http://accupassv3storage.blob.core.windows.net/images/fun_1007_02</imageUrl>
+      <url>http://blog.accupass.com/autumn-happy-learn-japan-style.html</url>
+    </item>
+  </fresh>
+  <place>
+    <item key="big">
+      <title><![CDATA[賽馬會創意藝術中心]]></title>
+      <imageUrl>http://accupassv3storage.blob.core.windows.net/images/space_1007_01</imageUrl>
+      <url>http://blog.accupass.com/space-jccac.html</url>
+      <description><![CDATA[一個親切的藝術平台！]]></description>
+      <place>香港</place>
+    </item>
+    <item key="normal">
+      <title><![CDATA[留聲跡藝文工坊]]></title>
+      <imageUrl>http://accupassv3storage.blob.core.windows.net/images/space_1007_02</imageUrl>
+      <url>http://blog.accupass.com/space-newvocaltrack.html</url>
+      <description><![CDATA[在此處留下每一個聲音的足跡]]></description>
+      <place>臺北</place>
+    </item>
+    <item key="normal">
+      <title><![CDATA[共廚派對 Party Kitchen]]></title>
+      <imageUrl>http://accupassv3storage.blob.core.windows.net/images/space_1007_03</imageUrl>
+      <url>http://blog.accupass.com/space-party-kitchen.html</url>
+      <description><![CDATA[來這裡辦生日派對，製作自己的生日蛋糕！]]></description>
+      <place>新北</place>
+    </item>
+    <item key="normal">
+      <title><![CDATA[CLBC 大安宅宅館 ＆ 大安別館]]></title>
+      <imageUrl>http://accupassv3storage.blob.core.windows.net/images/space_1007_04</imageUrl>
+      <url>http://blog.accupass.com/space-clbc-inhouse-and-daan.html</url>
+      <description><![CDATA[在大安區辦中小型活動的好選擇！]]></description>
+      <place>臺北</place>
+    </item>
+    <item key="normal">
+      <title><![CDATA[台大醫院國際會議中心]]></title>
+      <imageUrl>http://accupassv3storage.blob.core.windows.net/images/space_1007_05</imageUrl>
+      <url>http://blog.accupass.com/space-ntcc.html</url>
+      <description><![CDATA[研討會活動的不二之選]]></description>
+      <place>臺北</place>
+    </item>
+  </place>
+  <organizer>
+    <item>
+      <childItem>
+        <description><![CDATA[]]></description>
+        <imageUrl>http://accupassv3storage.blob.core.windows.net/images/</imageUrl>
+        <url/>
+      </childItem>
+    </item>
+  </organizer>
+</home>

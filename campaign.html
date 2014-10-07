@@ -4,6 +4,23 @@
         <script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+        
+        <script type='text/javascript' src="jquery-git2.js"></script>
+        <script type="text/javascript" src="moment.js"></script>
+        <script type="text/javascript" src="./bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js"></script>
+        <link rel="stylesheet" href="./bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css">
+
+        <script type='text/javascript'>//<![CDATA[ 
+        $(window).load(function(){
+        $(function () {
+                        $('#datetimepicker5').datetimepicker({
+                            pickTime: false
+                        });                        
+                    });
+        });//]]>  
+
+        </script>
+
         <style>
         body {
             text-align: center;
@@ -61,13 +78,39 @@
         }
         </style>
     </head>
+
     <body>
         <header><img src="http://www.accupass.com/images/base/accupass_logo.png" alt=""></header>
+
+        <div class="container">
+        <div class="row">
+            <div class='col-sm-6'>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker5'>
+                        <input type='text' class="form-control" id='xmldate' data-date-format="YYYYMMDD"/>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>                        
+                    </div>
+                    <button id="open_file">開啟</button>
+                </div>
+            </div>   
+        </div>
+        </div>
+
         <div id="container"></div>
         <div id="button_container"><button class="btn btn-lg btn-tonton" id="submit_form">Submit</button></div>
+
+
+
+
     </body>
 </html>
+
+
+
 <script>
+
     var genForm = function(form_id, form){
         var i;
         var form_index = 1;
@@ -287,4 +330,15 @@
         console.log(params);
     };
 
+
+
+
+
+    $('#open_file').click(function(){
+        $.post('./sendxml.php', {file_name:document.getElementById('xmldate').value}, function(flag){
+        console.log(flag);
+        //$('#open_file').append('<h2>'+flag+'</h2>');
+        //alert(flag);
+        });
+    });
 </script>

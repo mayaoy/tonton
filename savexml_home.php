@@ -231,10 +231,12 @@
 					// $value = '<![CDATA['.$value.']]>';
 					$next_child_item = $child_item->addChild($content_name);
 					$next_child_item->addCData($value);
+				}else if ($content_name == 'imageUrl'){
+					$value = 'http://accupassv3storage.blob.core.windows.net/images/'.$value;
+					$child_item->addChild($content_name,$value);
 				}else{
 					$child_item->addChild($content_name,$value);
 				}
-				
 			}
 		}
 	}
